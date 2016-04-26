@@ -1,0 +1,87 @@
+
+#F-NAS Tech Detail Design
+V0.9
+
+2016-04-22
+
+ 
+
+#系统架构 
+
+#主要数据结构
+用户
+WSUser
+{
+	UserID;
+	Name;
+	HostDeviceSN;
+	PortraitImageID;
+	Email;
+}
+
+•	NAS 
+WSNASDes
+{
+	DeviceSN;
+	HDA;
+	DeviceName;
+	.......
+}
+
+•	媒体文件：
+WSMediaFile
+{
+ 	TYPE;	// 0: photo; 1 Video
+	HashID;
+	Name;
+	CreateTime;
+	Owner;
+	Privilege;
+	ExifInfo
+	{
+	}
+}
+
+•	相册
+WSAlbum
+{
+	AlbumID;
+	Name;
+	Description;
+	CreateTime;
+	Owner;
+	CoverPhotoHashID;
+	MediaFileSetPoint;
+}
+•	评论
+Comment
+{
+	ID;
+	Type;// 0 : Like; 1 Text 
+	Sender;   // who send this comment
+	Receiver; 
+	HostMediaFileHashID;   // The file to be commented;
+	CreateTime;
+}
+
+•	通知
+Notification
+{
+	Type;
+}
+
+
+•	传输协议
+
+
+•	通知类型：
+
+公开照片有新评论
+有他人的新公开照片
+NAS设备通知（例如：磁盘满）
+连接状态变化
+
+
+•	版本规划
+
+
